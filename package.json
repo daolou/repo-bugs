@@ -1,47 +1,96 @@
 {
-  "name": "cnn_h5_ssr",
-  "version": "1.0.0",
-  "description": "h5_ssr",
-  "private": true,
-  "egg": {
-    "declarations": true
+  "name": "@ndog/webapp-kit",
+  "version": "1.2.13",
+  "description": "npm pkg typescript template",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "typings"
+  ],
+  "scripts": {
+    "test": "jest --config jest.config.js",
+    "build:cjs": "tsc -b ./tsconfig.cjs.json",
+    "build": "npm-run-all eslint clean build:cjs",
+    "clean": "rimraf ./lib ./es ./dist",
+    "release": "standard-version",
+    "eslint": "eslint ./src --fix --ext .ts,.tsx,.js,.jsx"
   },
-  "dependencies": {
-    "egg": "^2.15.1",
-    "egg-scripts": "^2.11.0",
-    "egg-view-nunjucks": "^2.2.0"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "node .github/verifyCommitMsg"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,jsx,tsx,ts,less,md,json}": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "node_modules",
+      "package.json",
+      "package-lock.json",
+      "lib",
+      "dist"
+    ]
+  },
+  "directories": {
+    "test": "__tests__"
   },
   "devDependencies": {
-    "autod": "^3.0.1",
-    "autod-egg": "^1.1.0",
-    "egg-bin": "^4.11.0",
-    "egg-ci": "^1.11.0",
-    "egg-mock": "^3.21.0",
-    "eslint": "^5.13.0",
-    "eslint-config-egg": "^7.1.0"
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.7.4",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/parser": "^2.1.0",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-plugin-jsx-control-statements": "^2.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "husky": "^2.4.1",
+    "jest": "^24.9.0",
+    "lint-staged": "^8.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "rimraf": "^3.0.0",
+    "standard-version": "^7.0.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.6.2"
   },
-  "engines": {
-    "node": ">=10.0.0"
-  },
-  "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-cnn_h5_ssr",
-    "stop": "egg-scripts stop --title=egg-server-cnn_h5_ssr",
-    "dev": "egg-bin dev",
-    "debug": "egg-bin debug",
-    "test": "npm run lint -- --fix && npm run test-local",
-    "test-local": "egg-bin test",
-    "cov": "egg-bin cov",
-    "lint": "eslint .",
-    "ci": "npm run lint && npm run cov",
-    "autod": "autod"
-  },
-  "ci": {
-    "version": "10"
+  "dependencies": {
+    "@types/crypto-js": "^3.1.43",
+    "axios": "^0.19.0",
+    "crypto-js": "^3.1.9-1",
+    "form-data": "^3.0.0"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/tmrwh/fe-utils.git"
   },
-  "author": "jzg",
-  "license": "MIT"
+  "keywords": [
+    "npm",
+    "typescript",
+    "ts",
+    "template"
+  ],
+  "author": "jiangzhiguo2010",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmrwh/fe-utils/issues"
+  },
+  "homepage": "https://github.com/tmrwh/fe-utils#readme"
 }

@@ -1,14 +1,14 @@
-logs/
-npm-debug.log
-yarn-error.log
-node_modules/
-package-lock.json
-yarn.lock
-coverage/
-.idea/
-run/
+# dependencies
+/node_modules
+/npm-debug.log*
+/yarn-error.log
+/yarn.lock
+
 .DS_Store
-*.sw*
-*.un~
-typings/
-.nyc_output/
+.idea/
+.vscode
+
+# compiles
+lib/
+es/
+dist/

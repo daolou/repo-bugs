@@ -1,0 +1,20 @@
+{
+  /* reference: https://www.tslang.cn/docs/handbook/compiler-options.html */
+  "files": ["./typings/index.d.ts"],
+  "include": ["src/**/*", "typings/index.d.ts"],
+  "exclude": ["node_modules", "**/__tests__/*", "lib", "es"],
+  "compilerOptions": {
+    "lib": ["es6", "dom", "dom.iterable", "scripthost"] /* Specify library files to be included in the compilation. */,
+    "jsx": "react" /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */,
+    "declaration": true /* Generates corresponding '.d.ts' file. */,
+    "declarationMap": true /* Generates a sourcemap for each corresponding '.d.ts' file. */,
+    "sourceMap": true /* Generates corresponding '.map' file. */,
+    "strict": true /* Enable all strict type-checking options. */,
+    // "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
+    "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
+    "paths": {
+      "~src/*": ["./src/*"]
+    } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
+    "esModuleInterop": true
+  }
+}
