@@ -1,6 +1,0 @@
-import AppManager from '../AppManager'
-
-test('AppManager', () => {
-  const appManager = new AppManager({ appName: 'test', router: {} })
-  console.log(appManager)
-})
